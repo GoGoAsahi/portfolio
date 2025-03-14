@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究者ポートフォリオ | 音声認識専門</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #4f46e5;
+            --accent-color: #8b5cf6;
+            --light-bg: #f3f4f6;
+            --dark-text: #1f2937;
+            --light-text: #f9fafb;
+            --section-bg: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-details {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+        }
+        
+        section {
+            background-color: var(--section-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .research-focus {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .research-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .publications {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .publication-item {
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(99, 102, 241, 0.05);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .publication-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .publication-details {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            border-radius: 30px;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .collaborations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .collab-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--accent-color);
+        }
+        
+        .motivation {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--secondary-color);
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="C:\Users\asahi\Desktop\portfolio\face.png" alt="プロフィール写真" class="profile-photo">
+            <h1>小笠原　朝陽</h1>
+            <div class="subtitle">音声認識研究者 | 構音障害者音声専門</div>
+            <p>岩手大学大学院 総合科学研究科 博士前期課程</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span>📧 g0324030@iwate-u.ac.jp</span>
+                </div>
+                <div class="contact-item">
+                    <span>🌐 <a href="https://ai-scholar.tech/author/%E3%82%A2%E3%82%B5%E3%81%95%E3%82%93" style="color: white; text-decoration: underline;">AI-SCHOLARにて記事公開中！</a></span>
+                </div>
+                <div class="contact-item">
+                    <span>🎓 23歳</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍 岩手県盛岡市</span>
+                </div>
+            </div>
+        </header>
+        
+        <section>
+            <h2>研究概要</h2>
+            <div class="research-focus">
+                <p>構音障害者の音声認識精度向上に関する研究を行っています。直近では、構音障害者音声を集めた大規模コーパスの実現を目指して活動しています。</p>
+                
+                <div class="research-card">
+                    <h3>主な研究テーマ</h3>
+                    <ul>
+                        <li>構音障害者音声の認識精度向上</li>
+                        <li>構音障害者音声を集めた大規模コーパスの開発</li>
+                        <li>話者性を維持した音声合成および音声クローニング</li>
+                    </ul>
+                </div>
+                
+                <div class="motivation">
+                    <h3>研究の動機</h3>
+                    <p>私自身が構音障害の当事者として、日常生活で音声認識技術の恩恵を受けられない frustration を経験してきました。この経験から、すべての人が平等に音声インターフェースを利用できる社会の実現を目指し研究に取り組んでいます。</p>
+                    <div class="quote">
+                        "技術は万人のためにあるべきで、例外があってはならない"
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>専門スキル</h2>
+            <div class="skills">
+                <span class="skill-tag">音声認識</span>
+                <span class="skill-tag">機械学習</span>
+                <span class="skill-tag">深層学習</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Transformer</span>
+                <span class="skill-tag">音響モデル</span>
+                <span class="skill-tag">データ拡張技術</span>
+                <span class="skill-tag">音声合成</span>
+                <span class="skill-tag">SEOライティング</span>
+            </div>
+        </section>
+        
+        <section>
+            <h2>研究業績</h2>
+            <div class="publications">
+                <div class="publication-item">
+                    <div class="publication-title">構音障害者音声認識における認識精度改善の検討</div>
+                    <div class="publication-details">
+                        <p>日本音響学会 2024年秋季研究発表会, 2024年9月</p>
+                        <p>小笠原　朝陽 (岩手大学大学院)　談宜育（岩手大学）</p>
+                    </div>
+                </div>
+        </section>
+        
+        <section>
+            <h2>共同研究・研究協力</h2>
+            <div class="collaborations">
+                <div class="collab-card">
+                    <h3>【サイバーエージェント】 末永剛さん</h3>
+                    <p>日本初！構音障害者音声コーパスの開発プロジェクト</p>
+                    <p>研究期間: 2024年10月〜現在</p>
+                </div>
+                
+                <div class="collab-card">
+                    <h3>【慶応義塾大学】 高道慎之介さん</h3>
+                    <p>日本初！構音障害者音声コーパスの開発プロジェクト</p>
+                    <p>研究期間: 2024年10月〜現在</p>
+                </div>
+                
+                <div class="collab-card">
+                    <h3>【天理医療大学】 野寺裕之さん</h3>
+                    <p>研究協力期間: 2024年11月〜現在</p>
+                </div>
+
+                <div class="collab-card">
+                    <h3>【株式会社 白鳩】</h3>
+                    <p>Shield Talkを用いた構音障害者支援デバイスの社会実装への相談</p>
+                    <p>研究協力期間: 2024年12月〜現在</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>研究履歴</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020年4月</div>
+                        <p>岩手大学理工学部 入学</p>
+                        <p>構音障害者音声認識研究を開始</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023年10月</div>
+                        <p>岩手大学理工学部 談研究室　所属</p>
+                        <p>構音障害者音声認識研究を開始</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024年3月</div>
+                        <p>岩手大学理工学部 卒業</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024年4月</div>
+                        <p>岩手大学大学院総合科学研究科 入学</p>
+                        <p>談研究室に所属し、引き続き構音障害者音声研究に従事</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024年9月</div>
+                        <p>日本音響学会 2024年秋季研究発表会</p>
+                        <p>【構音障害者音声認識における認識精度改善の検討】のポスター発表を行った</p>
+                    </div>
+                </div>
+            </div>
+        </section>
